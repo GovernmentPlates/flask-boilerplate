@@ -1,0 +1,35 @@
+{#-
+    Boilerplate - Maintenance mode template
+    -------------------------------------------------------------
+    This template is used to display a maintenance mode message
+    when the application is in maintenance mode. Whilst in this
+    mode, you cannot include any other resources in this template 
+    (e.g. static files etc.), as all requests will be redirected
+    to this template.
+-#}
+<html lang="en">
+    <head>
+        <title>{{ title }}</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <style>
+            :root {
+                color-scheme: light dark;
+            }
+
+            body {
+                font-family: 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
+            }
+
+            h1 {
+                font-size: 1.5em;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>503 Service Unavailable</h1>
+        <p>Sorry, we are doing some maintenance. Please check back soon.</p>
+        <hr/>
+        <p><i>{{ config['APP_NAME'] }}</i></p>
+    </body>
+</html>

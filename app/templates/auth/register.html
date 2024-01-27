@@ -1,0 +1,48 @@
+{#-
+    Boilerplate - Registration page
+    ------------------------------------------------------------
+    Jinja2 template for the registration page.
+-#}
+{% extends 'boilerplate/layout.html' %}
+{% block content %}
+    <div class="flex items-center justify-center mx-3">
+    <div class="px-8 py-6 mt-8 text-left bg-white p-4">
+        <h3 class="text-2xl font-bold text-center">Register for an account</h3>
+        <h4 class="text-lg font-bold text-center text-gray-500">It's free, quick and easy</h4>
+        <form action="{{ url_for('auth.register') }}" method="POST">
+            {% include 'boilerplate/flash_message.html' %}
+            {{ form.csrf_token }}
+            <div class="mt-4">
+                <div>
+                    <label class="block" for="email">First Name<label>
+                        {{ form.first_name(class="bg-gray-50 border border-gray-300 text-gray-900 w-full px-4 py-2 mt-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-blue-600", placeholder='John', type='text', value=old_form_data.first_name, autofocus=true) }}
+                </div>
+                <div class="mt-4">
+                    <label class="block" for="email">Last Name<label>
+                        {{ form.last_name(class="bg-gray-50 border border-gray-300 text-gray-900 w-full px-4 py-2 mt-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-blue-600", placeholder='Doe', type='text') }}
+                </div>
+                <div class="mt-4">
+                    <label class="block" for="email">Email<label>
+                        {{ form.email(class="bg-gray-50 border border-gray-300 text-gray-900 w-full px-4 py-2 mt-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-blue-600", placeholder='john@example.com', type='email') }}
+                </div>
+                <div class="mt-4">
+                    <label class="block">Password<label>
+                        {{ form.password(class="bg-gray-50 border border-gray-300 text-gray-900 w-full px-4 py-2 mt-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-blue-600", placeholder='••••••••', type='password') }}
+                        <p class="mt-2 text-sm text-gray-500 dark:text-gray-400 break-words">Your password needs to be at least 8 characters long, have no repeating characters and have at least 1 uppercase letter.</p>
+
+                </div>
+                <div class="mt-4">
+                    <label class="block">Repeat Password<label>
+                        {{ form.repeat_password(class="bg-gray-50 border border-gray-300 text-gray-900 w-full px-4 py-2 mt-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-blue-600", placeholder='••••••••', type='password') }}
+                </div>
+                <div class="flex items-baseline justify-between">
+                    <button class="px-6 py-2 mt-4 text-white bg-blue-600 rounded-lg hover:bg-blue-900" type="submit">Sign Up</button>
+                </div>
+                <p class="text-sm font-light text-gray-500 dark:text-gray-400 mt-4 mb-0">
+                      Already have an account? <a href="{{ url_for('auth.login') }}" class="font-medium text-blue-600 hover:underline dark:text-blue-500">Sign in.</a>
+                  </p>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,39 @@
+{#-
+    Boilerplate - Flash Messages
+    ------------------------------------------------------------
+    Jinja2 template for displaying flash() messages.
+
+    Example usage:
+
+    flash("Your password is incorrect", 'warning')
+-#}
+{% with success = get_flashed_messages(category_filter=['success']) %}
+    {% if success %}
+        <div class="p-4 my-4 text-sm text-green-700 bg-green-100 rounded-lg dark:bg-green-200 dark:text-green-800" role="alert">
+            {% for message in success %}
+                {{ message }}
+            {% endfor %}
+        </div>
+    {% endif %}
+{% endwith %}
+
+
+{% with warning = get_flashed_messages(category_filter=['warning']) %}
+    {% if warning %}
+        <div class="p-4 my-4 text-sm text-yellow-700 bg-yellow-100 rounded-lg dark:bg-yellow-200 dark:text-yellow-800" role="alert">
+            {% for message in warning %}
+                {{ message }}
+            {% endfor %}
+        </div>
+    {% endif %}
+{% endwith %}
+
+{% with danger = get_flashed_messages(category_filter=['danger']) %}
+    {% if danger %}
+        <div class="p-4 my-4 text-sm text-red-700 bg-red-100 rounded-lg dark:bg-red-200 dark:text-red-800" role="alert">
+            {% for message in danger %}
+                {{ message }}
+            {% endfor %}
+        </div>
+    {% endif %}
+{% endwith %}

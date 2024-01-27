@@ -1,0 +1,17 @@
+{#-
+    Boilerplate - User Macros
+    ------------------------------------------------------------
+    This file contains macros for user related tasks.
+-#}
+
+{#-
+    Macro: avatar
+    ------------------------------------------------------------
+    This macro generates an avatar image using the ui-avatars.com
+    API. It takes the first and last name of the user, the
+    background and text color of the avatar, and returns an
+    <img> tag with the avatar image.
+-#}
+{% macro avatar(first_name, last_name, bg_color, text_color, size, class) %}
+    <img src="https://ui-avatars.com/api/?name={{ first_name[0] }}+{{ last_name[0] }}&background={{ bg_color }}&color={{ text_color }}&rounded=true&format=svg&bold=true&size={{ size }}" alt="{{ first_name }}'s avatar" class="{{ class }}">
+{% endmacro %}
