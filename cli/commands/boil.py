@@ -20,4 +20,4 @@ def boil(temperature: int) -> None:
         for i in bar:
             time.sleep(1)
 
-    click.secho(f"Water has now been heated {temperature}°C", fg="green")
+    click.secho(f"Water has now been heated to {temperature}°C", fg="green")
